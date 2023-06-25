@@ -11,10 +11,9 @@ class WikiIssuesController < ApplicationController
       updated_line = line
       if line.include?("- [ ]")
         issue_title = extract_issue_title(line)
-        issue = create_issue(issue_title)
+        issue = create_issue(@wiki_page.title, issue_title)
         updated_line = update_wiki_content(line, issue.id);
         Rails.logger.info("  Wiki Issue Created Issue #: #{issue.id} named #{issue_title} tracker #{issue.tracker_id} in project #{issue.project_id}")
-        # add_note_to_issue(issue)
       end
       updated_wiki_content += updated_line + "\n"
     end
@@ -29,11 +28,12 @@ class WikiIssuesController < ApplicationController
     line.gsub(/- \[ \]/, "").strip
   end
 
-  def create_issue(issue_title)
+  def create_issue(wiki_title, issue_title)
     issue = Issue.new(
       project: @project,
       tracker: @project.trackers.first,
-      subject: issue_title,
+      subject: "#{wiki_title} - #{issue_title}",
+      description: "Created from Wiki Page: [[#{wiki_title}]]",
       author: User.current
     )
     issue.save
@@ -49,11 +49,5 @@ class WikiIssuesController < ApplicationController
     @wiki_page.content.text = wiki_content
     @wiki_page.save_with_content(@wiki_page.content)
   end
- 
-  # def add_note_to_issue(issue)
-  #   issue.init_journal(User.current)
-  #   issue.current_journal.notes = "This issue was created from the wiki."
-  #   issue.current_journal.save
-  # end
 
 end
