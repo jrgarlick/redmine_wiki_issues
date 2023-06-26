@@ -9,7 +9,7 @@ This simple [Redmine](https://www.redmine.org/) plugin automatically generates I
 * Currently only tested in Redmine v5.0.5
 
 ## Installation
-![Alt text](image.png)
+
 1. Simply clone this repository into your Redmine's `plugin/` directory.
 2. No database migration is needed.
 4. Restart Redmine.
