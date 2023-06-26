@@ -43,6 +43,10 @@ The new issue's title is a combination of the name of the source wiki page and t
 
 * Build Unit tests
 * Project-level configurations to choose the Tracker for the new Issues
+* Create configurable prefixes to match Trackers:
+  * `(?)` - 'Question' Tracker
+  * `-|*` - 'Task' or 'Epic` Tracker
+  * `(!)` - ??
 
 ### Task Directives
 It might be cool to support special directives in the task line to help organize the tasks that are created. The whole idea for extracting the tasks was to make it easier to manage them. So why not provide some hints? Here are a few ideas:
@@ -76,4 +80,14 @@ In the Redmine community, there are a lot of options when it comes to tagging. T
 ### Completed Ideas
 * Link back to Wiki page from Issue to help increase the connection between the Issue and the original note
 * Name the issue with the Wiki page name prefixed: ('`<wiki name> - <issue title>`')
+
+## Use Cases
+
+1) You're an Avid Redmine User and you have your own personal project to track your daily notes. You've been copying any tasks out of your notes and creating new issues. This works well, but it's a pain and there's a lot of context switching and makes you lose focus on the meeting. This plugin can help you jot down an action, and then later easily provide details in the 
+
+2) You're a part of a dev team and you're in an architecture design session. You're taking notes in the Redmine Wiki and some needs come up in the moment. You take a note to follow up on those actions, but then the meeting progresses and you forget about the tasks. Days later, you remember, but the opportunity has passed. This plugin would have created new issues that you could have added to your backlog.
+
+## License
+
+The source code for the site is licensed under the MIT license, which you can find in the LICENSE.txt file.
 
