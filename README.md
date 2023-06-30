@@ -21,9 +21,15 @@ In the "Settings" of each project, check the **Redmine wiki issues** checkbox.
 
 ## Usage
 
+### Creating Issues
+
 Once the plugin is activated, using it is very simple. When you save your Wiki page, the plugin will automatically scan the content and look for any line that begins with the pattern: `- [ ]`. When it encounters this pattern, the plugin will generate a new issue and replace the space inside the backets with the issue number. 
 
 > *Please note: This plugin currently only supports the hyphen-prefixed checkbox. I will add support for the asterisk soon.*
+
+Currently, the plugin will select the first Tracker associated with your project. Configuring this is on our to-do list.
+
+#### Examples
 
 You just need type in the new issue's text:
 
@@ -38,6 +44,22 @@ Redmine already supports hanling creating links out of the issue number automati
 ![Alt text](docs/new-issue.png)
 
 The new issue's title is a combination of the name of the source wiki page and the remainder of the line of text. The description contains a link to the source wiki page. And you can now use the issue as you would any other issue.
+
+### Parent Tasks
+
+Issues created from the plugin can be associated with a Parent Issue ID by adding an Issue reference in the First line of the Wiki page. 
+
+#### Example
+
+This wiki page has the parent issue number in parentheses on the first line of the wiki page.
+
+![Wiki Page with a parent issue](docs/wiki_page_parent_issue.png)
+
+When new issues are added, the are set to have that issue as their parent automatically. 
+
+![Parent issue with child issues from page](docs/wiki_parent_issue.png)
+
+If you don't wish to setup that relationship, simply remove the issue id.
 
 ## Future Enhancements
 
@@ -80,6 +102,7 @@ In the Redmine community, there are a lot of options when it comes to tagging. T
 ### Completed Ideas
 * Link back to Wiki page from Issue to help increase the connection between the Issue and the original note
 * Name the issue with the Wiki page name prefixed: ('`<wiki name> - <issue title>`')
+* Parent issue id can be set by placing the parent issue ID in the first line of the wiki page. (More ways to set parent to come.)
 
 ## Use Cases
 
