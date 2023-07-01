@@ -25,11 +25,7 @@ class WikiIssuesController < ApplicationController
       updated_wiki_content += updated_line + "\n"
     end
 
-    if wiki_content == updated_wiki_content
-      Rails.logger.info("  Saving updated Wiki Content")
-      update_wiki_page_content(updated_wiki_content)
-    end
-
+    update_wiki_page_content(updated_wiki_content)
   end
 
   private
